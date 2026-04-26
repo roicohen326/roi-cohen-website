@@ -6,4 +6,19 @@ describe('Home page', () => {
     render(<Home />);
     expect(document.body).toBeTruthy();
   });
+
+  it('renders the main heading', () => {
+    render(<Home />);
+    expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
+  });
+
+  it('renders the Next.js logo image', () => {
+    render(<Home />);
+    expect(screen.getByAltText('Next.js logo')).toBeInTheDocument();
+  });
+
+  it('renders a link to Templates', () => {
+    render(<Home />);
+    expect(screen.getByRole('link', { name: /templates/i })).toBeInTheDocument();
+  });
 });
